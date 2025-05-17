@@ -1,6 +1,6 @@
 import './style.css';
 
-import { iniciarCombate } from './juegos/Combate.js';
+
 import { iniciarTresEnRaya } from './juegos/Tres-En-Raya.js';
 import { iniciarSnake } from './juegos/snake.js';
 
