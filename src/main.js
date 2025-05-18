@@ -1,36 +1,33 @@
 import './style.css';
 
+import { iniciarTresEnRaya } from './juegos/Tres-En-Raya/Tres-En-Raya.js';
+import { iniciarMemoria } from './juegos/Memoria/Memoria.js';
+import { AdivinaNumero } from './juegos/AdivinaNnumero/AdivinaNumero.js';
 
-import { iniciarTresEnRaya } from './juegos/Tres-En-Raya.js';
-import { iniciarSnake } from './juegos/snake.js';
-
-
-menu.classList.add('hidden');
 const menu = document.getElementById('menu');
 const botones = document.querySelectorAll('.Juego');
 const contenedor = document.getElementById('game-container');
 
-
 botones.forEach(boton => {
   boton.addEventListener('click', () => {
     const juego = boton.dataset.game;
-
-    // Ocultar el menú y mostrar el contenedor del juego
     menu.classList.add('hidden');
     contenedor.classList.remove('hidden');
+    contenedor.innerHTML = ''; 
 
     switch (juego) {
-      case 'combate':
-        iniciarCombate(contenedor);
-        break;
       case 'tresenraya':
         iniciarTresEnRaya(contenedor);
         break;
-      case 'snake':
-        iniciarSnake(contenedor);
+      case 'memoria':
+        iniciarMemoria(contenedor);
+        break;
+      case 'adivina':
+        const juegoAdivina = new AdivinaNumero(contenedor);
+        juegoAdivina.start();
         break;
       default:
-        contenedor.innerHTML = `<p>Juego no encontrado.</p>`;
+        contenedor.innerHTML = '<p>Juego no encontrado</p>';
     }
   });
 });
