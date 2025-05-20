@@ -1,0 +1,67 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #001f3f;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Contenedor principal */
+#juego {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 90vw;
+  max-width: 600px;
+  justify-content: center;
+}
+
+/* Estilo de cada carta */
+.carta {
+  width: 100px;
+  height: 140px;
+  background: #333;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  perspective: 1000px;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+}
+
+/* Imagen de la carta */
+.carta img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+  border-radius: 10px;
+}
+
+/* Cuando se voltea la carta */
+.carta.flip img {
+  display: block;
+}
+
+/* Carta emparejada (ya acertada) */
+.carta.emparejada {
+  border: 3px solid limegreen;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* Responsive: ajusta el tamaño en móviles */
+@media (max-width: 600px) {
+  .carta {
+    width: 70px;
+    height: 100px;
+  }
+}

@@ -1,3 +1,4 @@
+// filepath: [main.js](http://_vscodecontentref_/2)
 import './style.css';
 
 import { iniciarTresEnRaya } from './juegos/Tres-En-Raya/Tres-En-Raya.js';
@@ -8,6 +9,13 @@ const menu = document.getElementById('menu');
 const botones = document.querySelectorAll('.Juego');
 const contenedor = document.getElementById('game-container');
 
+// Función para volver al menú principal
+function volverAlMenu() {
+  contenedor.classList.add('hidden');
+  menu.classList.remove('hidden');
+  contenedor.innerHTML = '';
+}
+
 botones.forEach(boton => {
   boton.addEventListener('click', () => {
     const juego = boton.dataset.game;
@@ -17,13 +25,13 @@ botones.forEach(boton => {
 
     switch (juego) {
       case 'tresenraya':
-        iniciarTresEnRaya(contenedor);
+        iniciarTresEnRaya(contenedor, volverAlMenu);
         break;
       case 'memoria':
-        iniciarMemoria(contenedor);
+        iniciarMemoria(contenedor, volverAlMenu);
         break;
       case 'adivina':
-        const juegoAdivina = new AdivinaNumero(contenedor);
+        const juegoAdivina = new AdivinaNumero(contenedor, volverAlMenu);
         juegoAdivina.start();
         break;
       default:

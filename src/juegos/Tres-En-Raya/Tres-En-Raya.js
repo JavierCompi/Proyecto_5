@@ -45,7 +45,7 @@ export function iniciarTresEnRaya(container) {
     tabla[pos] = color;
 
     if (hayGanador()) {
-      mensaje.textContent = `Enorabuena ${color} ha ganado.`;S
+      mensaje.textContent = `Enhorabuena ${color} ha ganado.`;
       document.querySelectorAll(".btn").forEach((obj) => {
         obj.removeEventListener("click", btnPulsado);
         obj.disabled = true;
